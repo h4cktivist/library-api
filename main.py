@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.v1.endpoints import auth
+from api.v1.endpoints import auth, books
 from core.config import settings
 
 
@@ -16,3 +16,4 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix='/auth', tags=['auth'])
+app.include_router(books.router, prefix='/books', tags=['books'])
