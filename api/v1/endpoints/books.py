@@ -22,7 +22,6 @@ def create_book(book: BookCreate, db: Session = Depends(get_db),
 @router.get('/', response_model=List[Book])
 def get_books(skip: int = 0,
               limit: int = 100,
-              current_user: User = Depends(get_current_user),
               db: Session = Depends(get_db)):
     books = crud_book.get_books(db, skip=skip, limit=limit)
     return books
