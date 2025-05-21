@@ -29,7 +29,7 @@ def borrow_book(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Reader not found')
 
     if db_book.quantity <= 0:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='No available copies of this book')
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='No available copies of this book')
 
     active_borrowings = crud_borrowing.get_active_reader_borrowings(db, reader_id=borrowing.reader_id)
     if len(active_borrowings) >= 3:
