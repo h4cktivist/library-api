@@ -9,6 +9,7 @@ class Book(Base):
     title = Column(String, index=True, nullable=False)
     author = Column(String, nullable=False)
     year = Column(Integer)
+    genre = Column(String)
     isbn = Column(String, unique=True)
     quantity = Column(Integer, default=1, nullable=False)
     description = Column(String)
